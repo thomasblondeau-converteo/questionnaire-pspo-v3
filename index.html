@@ -1351,6 +1351,7 @@
 const ADMIN_PASSWORD = "TeamProductPSPO2026!";
 const REQUIRED_PASSED_FULL_EXAMS = 3;
 const PASS_THRESHOLD_PCT = 85;
+const GOOGLE_SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyODqYO38NmWsRNHYXFpNik3fJBXECekOKNszl_2n77y7ZmpQSRaV9wG6O1IiGugR8IVg/exec";
 
 /* ── TEST MODES CONFIG ── */
 const TEST_MODES = {
@@ -2016,7 +2017,24 @@ function confirmNewExam() {
   document.getElementById('missedSection').style.display = 'none';
   window.scrollTo(0, 0);
 }
+async function sendAttemptToGoogleSheet(attempt) {
+  if (!GOOGLE_SHEETS_WEBAPP_URL || GOOGLE_SHEETS_WEBAPP_URL.includes("COLLE_ICI")) {
+    return;
+  }
 
+  try {
+    await fetch(GOOGLE_SHEETS_WEBAPP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify(attempt),
+    });
+  } catch (e) {
+    console.warn("Google Sheets tracking failed:", e);
+  }
+}
 /* ═══════════════════════════════════════════════════════════════════════
    PERSISTENCE — Firebase (primary) / localStorage (fallback)
    ═══════════════════════════════════════════════════════════════════════ */
@@ -2034,6 +2052,8 @@ async function saveAttempt(stats) {
     failedQuestions: stats.failedQuestions,
     countsForVoucher: TEST_MODES[currentMode].countsForVoucher,
   };
+
+  sendAttemptToGoogleSheet(attempt);
 
   if (window.__firebaseReady && window.__firebaseDb) {
     try {
