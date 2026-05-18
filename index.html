@@ -1989,7 +1989,7 @@ function renderThemeScores(themeData) {
 
 /* ── Missed Questions ── */
 function renderMissed(missed) {
-  const optLetters = ['A', 'B', 'C', 'D', 'E'];
+  const optLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   let html = '';
   missed.forEach(({ q, userAns }) => {
     const correctLabels = q.answer.map(i => `${optLetters[i]}. ${q.options[i]}`).join(', ');
