@@ -728,6 +728,27 @@
     .train-wrong { background: #FEE2E2; color: #991B1B; border-left: 4px solid var(--red); }
     .train-feedback.show { display: block; }
 
+    /* ── VALIDATE (multi-answer, immediate-feedback modes) ── */
+    .validate-wrap { padding: 0 18px 12px 58px; }
+    .validate-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 7px;
+      border: none;
+      background: var(--navy);
+      color: #fff;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .validate-btn:hover:not(:disabled) { background: var(--purple); }
+    .validate-btn:disabled { background: #CBD5E1; color: #F1F5F9; cursor: not-allowed; }
+    .option input:disabled { cursor: default; }
+
     /* ── FLAG / CONTROLS ── */
     .q-controls { display: flex; align-items: center; gap: 6px; margin-left: auto; flex-shrink: 0; }
 
@@ -1361,14 +1382,16 @@ const TEST_MODES = {
 };
 
 /* ── DRAW CONFIG — Weighted section draw ── */
+/* Rebalanced for the verified-only (Ditectrev) bank of 264 questions.
+   Targets sum to 80 (Full Exam / Training size) and every section has
+   ample verified questions to draw from. Adjust the weights to taste. */
 const DRAW_CONFIG = {
-  "PO & Product Value":     { target: 20, pct: 0.25 },
-  "Scrum Framework":        { target: 12, pct: 0.15 },
-  "Scrum Team":             { target: 12, pct: 0.15 },
-  "Events":                 { target: 12, pct: 0.15 },
-  "Artifacts & DoD":        { target: 12, pct: 0.15 },
-  "Product Goal & Planning":{ target:  8, pct: 0.10 },
-  "Cases & Anti-patterns":  { target:  4, pct: 0.05 },
+  "PO & Product Value":            { target: 22, pct: 0.275 },
+  "Scrum Team":                    { target: 16, pct: 0.20  },
+  "Product Backlog & Refinement":  { target: 14, pct: 0.175 },
+  "Scrum Framework":               { target: 12, pct: 0.15  },
+  "Events":                        { target:  8, pct: 0.10  },
+  "Artifacts & DoD":               { target:  8, pct: 0.10  },
 };
 
 const DIFFICULTY_TARGETS = { easy: 0.25, medium: 0.50, hard: 0.25 };
@@ -1382,6 +1405,7 @@ let answers = {};
 let flagged = new Set();
 let submitted = false;
 let reviewMode = false;
+let revealed = new Set();   // question ids whose feedback has been revealed (immediate-feedback modes)
 let timerInterval = null;
 let secondsLeft = 3600;
 let currentUser = { name: '', email: '' };
@@ -1648,6 +1672,7 @@ function initExam() {
   flagged = new Set();
   submitted = false;
   reviewMode = false;
+  revealed = new Set();
 
   examQuestions = drawExam();
 
@@ -1684,6 +1709,7 @@ function initExam() {
 function renderQuestions() {
   const container = document.getElementById('questionsContainer');
   const optLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const immediate = TEST_MODES[currentMode].immediateFeedback;
 
   let html = '';
   let currentSection = '';
@@ -1722,7 +1748,7 @@ function renderQuestions() {
         <div class="q-num">${String(q.displayId).padStart(2, '0')}</div>
         <div style="flex:1">
           <div class="q-text">${q.text}</div>
-          ${isMulti ? '<div class="q-note">⚠️ Select all that apply — multiple answers required</div>' : ''}
+          ${isMulti ? `<div class="q-note">⚠️ Select all that apply — ${q.answer.length} answers expected${immediate ? '. Make your selections, then click "Check answer".' : ''}</div>` : ''}
         </div>
         <div class="q-controls">
           ${scenarioBadge}
@@ -1741,6 +1767,7 @@ function renderQuestions() {
           </label>
         `).join('')}
       </div>
+      ${isMulti && immediate ? `<div class="validate-wrap"><button class="validate-btn" id="validate-${q.id}" onclick="validateMultiAnswer(${q.id})" disabled>✔ Check answer</button></div>` : ''}
       <div class="train-feedback" id="tf-${q.id}"></div>
       <div class="explanation" id="expl-${q.id}">
         <strong>✅ Explanation:</strong> ${q.explanation || q.expl || ''}
@@ -1758,6 +1785,9 @@ function renderQuestions() {
    ═══════════════════════════════════════════════════════════════════════ */
 function selectOption(qId, optIdx, isMulti) {
   if (submitted) return;
+  // Once a question's feedback is revealed in an immediate-feedback mode,
+  // the answer is locked — ignore any further clicks on its options.
+  if (revealed.has(qId)) return;
 
   if (!isMulti) {
     answers[qId] = [optIdx];
@@ -1772,15 +1802,40 @@ function selectOption(qId, optIdx, isMulti) {
   updateProgress();
 
   if (TEST_MODES[currentMode].immediateFeedback) {
-    showImmediateFeedback(qId);
+    if (isMulti) {
+      // Multi-answer: DON'T reveal on each click — let the user finish
+      // selecting, then confirm via the "Check answer" button.
+      updateValidateButton(qId);
+    } else {
+      // Single-answer: one click = a complete answer, reveal immediately.
+      revealFeedback(qId);
+    }
   }
 }
 
-function showImmediateFeedback(qId) {
+/* Enable the "Check answer" button once at least one option is picked. */
+function updateValidateButton(qId) {
+  const btn = document.getElementById('validate-' + qId);
+  if (!btn) return;
+  const count = (answers[qId] || []).length;
+  btn.disabled = count === 0;
+}
+
+/* Triggered by the "Check answer" button on multi-answer questions. */
+function validateMultiAnswer(qId) {
+  if (submitted || revealed.has(qId)) return;
+  if ((answers[qId] || []).length === 0) return;
+  revealFeedback(qId);
+}
+
+/* Reveal the correction for one question and lock its inputs. */
+function revealFeedback(qId) {
   const q = examQuestions.find(x => x.id === qId);
   if (!q) return;
   const userAns = answers[qId] || [];
   if (userAns.length === 0) return;
+
+  revealed.add(qId);
 
   const isCorrect = arraysEqual(userAns, q.answer);
   const tf = document.getElementById('tf-' + qId);
@@ -1797,7 +1852,14 @@ function showImmediateFeedback(qId) {
     opt.classList.remove('option-correct', 'option-wrong', 'selected');
     if (q.answer.includes(i)) opt.classList.add('option-correct');
     else if (userAns.includes(i)) opt.classList.add('option-wrong');
+    // Lock the input so the answer can't be changed after seeing the correction.
+    const input = opt.querySelector('input');
+    if (input) input.disabled = true;
   });
+
+  // Hide the "Check answer" button once the correction is shown.
+  const btn = document.getElementById('validate-' + qId);
+  if (btn) btn.style.display = 'none';
 
   const expl = document.getElementById('expl-' + qId);
   const trap = document.getElementById('trap-' + qId);
@@ -1970,6 +2032,7 @@ function renderThemeScores(themeData) {
   if (weakThemes.length > 0) {
     const recoMap = {
       "PO & Product Value":      "Review PO accountabilities, Product Backlog management, and the concept of value per the Scrum Guide.",
+      "Product Backlog & Refinement": "Revisit Product Backlog ordering, refinement as an ongoing activity, and what makes items ready.",
       "Scrum Framework":         "Revisit the empirical pillars, Scrum values, and the official framework definition.",
       "Scrum Team":              "Deepen your understanding of each role's accountabilities and self-management.",
       "Events":                  "Memorize the timeboxes, objectives, and participants for each Scrum event.",
