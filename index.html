@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateurs d'Entraînement PSPO — Converteo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Réutilisation de l'identité visuelle Converteo de la page PSPO 1 */
+    :root {
+      --navy: #2D2B6B;
+      --navy-dk: #1E1C52;
+      --purple: #3D3B8E;
+      --purple-dk: #2A285F;
+      --teal: #00B2B2;
+      --teal-lt: #E0F5F5;
+      --white: #FFFFFF;
+      --gray-lt: #F3F4F6;
+      --gray: #6B7280;
+      --text: #1F2937;
+      --gold: #F59E0B;
+      --gold-lt: #FEF3C7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--navy-dk) 0%, var(--purple-dk) 100%);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+    }
+
+    /* Logo Converteo */
+    .logo-container {
+      margin-bottom: 30px;
+    }
+    .logo-container img {
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    h1 span {
+      color: var(--teal);
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #8B8ECA;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      line-height: 1.6;
+    }
+
+    /* Cartes des choix de formation */
+    .portal-grid {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .portal-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 40px 30px;
+      width: 380px;
+      text-align: left;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      transition: background 0.3s;
+    }
+
+    /* Style spécifique Carte PSPO 1 (Teal) */
+    .card-pspo1::before {
+      background: var(--teal);
+    }
+    .card-pspo1:hover {
+      border-color: var(--teal);
+      background: rgba(0, 178, 178, 0.08);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 178, 178, 0.15);
+    }
+
+    /* Style spécifique Carte PSPO 2 (Gold/Amber) */
+    .card-pspo2::before {
+      background: var(--gold);
+    }
+    .card-pspo2:hover {
+      border-color: var(--gold);
+      background: rgba(245, 158, 11, 0.08);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15);
+    }
+
+    .card-icon {
+      font-size: 48px;
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .card-pspo1 .card-title { color: var(--teal); }
+    .card-pspo2 .card-title { color: var(--gold); }
+
+    .card-desc {
+      font-size: 14px;
+      color: #8B8ECA;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      flex-grow: 1;
+    }
+
+    /* Boutons de redirection */
+    .portal-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-pspo1 {
+      background: var(--teal);
+      color: var(--navy-dk);
+    }
+    .btn-pspo1:hover {
+      background: #00CECE;
+      box-shadow: 0 4px 12px rgba(0, 178, 178, 0.3);
+    }
+
+    .btn-pspo2 {
+      background: var(--gold);
+      color: var(--navy-dk);
+    }
+    .btn-pspo2:hover {
+      background: #FBBF24;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    /* Footer */
+    .footer {
+      font-size: 11px;
+      color: #6B6EA8;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 800px) {
+      h1 { font-size: 32px; }
+      .portal-card { width: 100%; padding: 30px 20px; }
+      .portal-grid { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Logo Converteo -->
+    <div class="logo-container">
+      <img src="https://i.postimg.cc/4xkbRghj/DEKUPLE-Logos-RVB-Converteo-blanc-WEB.png" alt="Converteo">
+    </div>
+
+    <div class="brand-subtitle">Product Tribe Internal Training</div>
+    <h1>Simulateurs de Certification <span>PSPO</span></h1>
+    <p class="subtitle">
+      Sélectionnez le niveau de certification de votre choix pour démarrer votre entraînement officiel basé sur le Scrum Guide 2020.
+    </p>
+
+    <div class="portal-grid">
+      <!-- Carte PSPO I -->
+      <div class="portal-card card-pspo1">
+        <div>
+          <div class="card-icon">⚡</div>
+          <h2 class="card-title">Simulateur PSPO I</h2>
+          <p class="card-desc">
+            Validez vos compétences fondamentales en Product Ownership. Examinez les responsabilités du Product Owner, la gestion du Product Backlog et la livraison de valeur.
+          </p>
+        </div>
+        <a href="pspo1.html" class="portal-btn btn-pspo1">Démarrer le niveau I →</a>
+      </div>
+
+      <!-- Carte PSPO II -->
+      <div class="portal-card card-pspo2">
+        <div>
+          <div class="card-icon">🎯</div>
+          <h2 class="card-title">Simulateur PSPO II</h2>
+          <p class="card-desc">
+            Passez au niveau supérieur (Advanced). Testez votre capacité à gérer des parties prenantes complexes, à maximiser la valeur à grande échelle et à appliquer l'Evidence-Based Management (EBM).
+          </p>
+        </div>
+        <a href="pspo2.html" class="portal-btn btn-pspo2">Démarrer le niveau II →</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      Converteo • Tous droits réservés • Propulsé par la Product Tribe
+    </div>
+  </div>
+
+</body>
+</html>
