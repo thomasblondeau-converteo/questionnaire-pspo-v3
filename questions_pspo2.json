@@ -1,1 +1,644 @@
-
+[
+{
+"id": 1,
+"section": "Scrum Artifacts",
+"difficulty": "medium",
+"type": "single",
+"scenario": false,
+"text": "Which of the following would be wrong for a Product Owner to do? Select the best answer.",
+"options": [
+"Determine the timing for releasing the product Increment.",
+"Approve the work completed during the Sprint.",
+"Set the Sprint Goal without consulting the team.",
+"Set a Product Goal."
+],
+"answer": [
+2
+],
+"trap": "Do not confuse the Product Owner's accountability for maximizing value with an authoritarian role during team events.",
+"explanation": "Correct: 'Set the Sprint Goal without consulting the team.' The Sprint Goal is collaboratively defined by the entire Scrum Team (Product Owner, Scrum Master, and Developers) during Sprint Planning. It cannot be set unilaterally by the Product Owner.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 2,
+"section": "Product Vision",
+"difficulty": "hard",
+"type": "single",
+"scenario": true,
+"text": "As a Product Owner in scaled Scrum with multiple Scrum teams, what approach would be most beneficial when you are unable to dedicate enough time to each team? (choose the best option)",
+"options": [
+"Assemble a group of Proxy Product Owners from the current Scrum Team members.",
+"Ensure all Scrum Teams have a thorough grasp of the Product Vision, so they can be guided by it if you delegate certain tasks to the Developers.",
+"All the above options are valid; the decision depends on the specific situation.",
+"Hire additional Product Owners for every product component.",
+"Collaborate with the Program Management Office to receive the necessary support."
+],
+"answer": [
+1
+],
+"trap": "Proxy Product Owners and multiple component POs are anti-patterns in Scrum. There is only ever one Product Owner per product.",
+"explanation": "Correct: 'Ensure all Scrum Teams have a thorough grasp of the Product Vision...' According to Scrum, a product has only one Product Owner. If the PO is overloaded, they can delegate certain tasks to the Developers, but they remain accountable. A clear and strong Product Vision enables the teams to self-manage effectively.",
+"source": "Scrum Guide 2020 / Scaled Scrum (Nexus)"
+},
+{
+"id": 3,
+"section": "Scrum Artifacts",
+"difficulty": "hard",
+"type": "multiple",
+"scenario": true,
+"text": "As the Product Owner you realise the last increment did not meet the full Definition of Done and you are concerned about its quality. What is the likely result? (choose all that apply)",
+"options": [
+"The next Sprints velocity may be interrupted when quality issues are encountered.",
+"The indication of progress on the Product Backlog is not transparent.",
+"The project manager cannot effectively update the plan.",
+"The incomplete Sprint Backlog items should be returned to the Product Backlog.",
+"The Increment should not be released."
+],
+"answer": [
+0,
+1,
+3,
+4
+],
+"trap": "Scrum does not recognize the role of a traditional Project Manager, so options referring to a project manager's plan are incorrect.",
+"explanation": "Correct: If an increment does not meet the Definition of Done, it cannot be released, and it cannot be presented at the Sprint Review. The incomplete items are returned to the Product Backlog. Progress metrics become non-transparent, and future velocity will be hit by tech debt and quality issues.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 4,
+"section": "Scrum Values",
+"difficulty": "hard",
+"type": "single",
+"scenario": true,
+"text": "The Developers in the company you work at complain that they feel frustrated by constant interruptions and useless meetings, and much of their past work has resulted in being unneeded. You notice that some of your best Developers are leaving. What measurements should you consider for informing you on how to improve employee retention rates? (choose the best answer)",
+"options": [
+"The Innovation Rate, which is the ratio of new work to total work.",
+"All of the above.",
+"The On-Product Index, which measures the proportion of work related to the product to total work.",
+"Employee Net Promoter Scores, which measures the overall job satisfaction and company satisfaction of the developers."
+],
+"answer": [
+1
+],
+"trap": "Do not look for a single isolated metric. Employee retention and satisfaction are multi-faceted.",
+"explanation": "Correct: 'All of the above.' Innovation Rate, On-Product Index, and Employee Net Promoter Scores are all official metrics within the Evidence-Based Management (EBM) framework that help evaluate employee satisfaction, waste, and organizational health.",
+"source": "Evidence-Based Management (EBM) Guide"
+},
+{
+"id": 5,
+"section": "Business Strategy",
+"difficulty": "medium",
+"type": "multiple",
+"scenario": false,
+"text": "Which of the following are true about Scrum? (Select all that apply).",
+"options": [
+"Each element of Scrum serves a distinct purpose and is crucial for the successful application of Scrum in building complex products.",
+"Scrum is similar to traditional processes, with the key difference being self-management replacing Project Managers.",
+"Scrum is a methodology that allows you to selectively implement components based on your organization's specific needs.",
+"Scrum is founded on the principles of empiricism.",
+"Scrum is a framework designed to deliver value through adaptive solutions for complex problems."
+],
+"answer": [
+0,
+3,
+4
+],
+"trap": "Scrum is explicitly defined as a lightweight framework, not a 'methodology', and is not a buffet where you can selectively pick components.",
+"explanation": "Correct: Scrum is an empirical framework designed for adaptive solutions. While selective implementation of parts of Scrum is possible, the resulting system is not Scrum. Each defined element is essential.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 6,
+"section": "Product Backlog Management",
+"difficulty": "medium",
+"type": "single",
+"scenario": false,
+"text": "Who has accountability for clearly expressing the Product Backlog Items? (choose the best answer)",
+"options": [
+"The Scrum Master, with the option to enlist the Product Owner's assistance.",
+"The Scrum Master, with the option to enlist the Developers' assistance.",
+"The Product Owner, who can designate a team member within the Scrum Team to handle the task.",
+"The Scrum Master.",
+"The Developers."
+],
+"answer": [
+2
+],
+"trap": "Accountability can never be transferred, even if the execution of the task is delegated.",
+"explanation": "Correct: The Product Owner is solely accountable for Product Backlog management, which includes clearly expressing items, although they may delegate the execution of these tasks to others.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 7,
+"section": "Product Backlog Management",
+"difficulty": "easy",
+"type": "single",
+"scenario": false,
+"text": "Scrum is about getting started, the right product will emerge eventually. True or False?",
+"options": [
+"False",
+"True"
+],
+"answer": [
+1
+],
+"trap": "Do not overthink. Scrum values action and iterative learning over extensive upfront analysis.",
+"explanation": "Correct: True. Scrum is built on empiricism. You cannot know everything upfront; you begin with a basic understanding and the right product features emerge as you release increments and gather feedback.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 8,
+"section": "Scrum Team",
+"difficulty": "easy",
+"type": "single",
+"scenario": false,
+"text": "In Scrum every .... needs a Product Owner. Choose from the below to fill in the blank.",
+"options": [
+"Program",
+"Product",
+"Portfolio",
+"Project"
+],
+"answer": [
+1
+],
+"trap": "Do not confuse project-based management with product-centric Scrum frameworks.",
+"explanation": "Correct: Product. In Scrum, every Product must have exactly one Product Owner and one Product Backlog, regardless of how many Scrum Teams work on it.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 9,
+"section": "Scrum Team",
+"difficulty": "easy",
+"type": "single",
+"scenario": false,
+"text": "Who tells the Developers how to turn Product Backlog items into Increments of value?",
+"options": [
+"The Product Owner",
+"The Scrum Master",
+"None of the above",
+"The Lead Developer"
+],
+"answer": [
+2
+],
+"trap": "No hierarchical authority tells the Developers how to perform their technical tasks in Scrum.",
+"explanation": "Correct: 'None of the above'. Developers are completely self-managing. They alone decide how to turn Product Backlog items into functional, valuable Increments.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 10,
+"section": "Empiricism",
+"difficulty": "medium",
+"type": "multiple",
+"scenario": false,
+"text": "If Sprint Backlog items are not clear what might be the concerns? (choose the best 4 answers)",
+"options": [
+"Development time might be wasted.",
+"The Scrum Master has failed, the Scrum Master is changed and the Sprint is re-started.",
+"There is no concern, the Developers do not need the items to be clear.",
+"The team might have different understandings and different basis for adaptation.",
+"Decisions made on those items may be bad decisions.",
+"The Developers will have difficulty creating a forecast of work for the Sprint without more clarity."
+],
+"answer": [
+0,
+3,
+4,
+5
+],
+"trap": "Scrum does not punish Scrum Masters by instantly changing them, nor does it dismiss the need for clarity.",
+"explanation": "Correct: Lack of clarity causes waste of development effort, differing assumptions about adaptation, poor decision-making during implementation, and major challenges for forecasting during Sprint Planning.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 11,
+"section": "Scrum Artifacts",
+"difficulty": "medium",
+"type": "single",
+"scenario": false,
+"text": "Which is the best description of the Sprint Backlog as a result of Sprint Planning? (choose the best answer)",
+"options": [
+"It is a decomposition of Product Backlog items such that enough work is decomposed for at least the first days of the Sprint.",
+"It is an exhaustive list of all tasks for the Sprint.",
+"It is a list of the User Stories estimated in story points, and a list of corresponding tasks that are estimated in hours.",
+"It is a task list where every Developer has signed up for all the tasks that they intend to do in the Sprint.",
+"It must be ordered by the Product Owner."
+],
+"answer": [
+0
+],
+"trap": "The Sprint Backlog is not a static, exhaustive task list. It emerges continuously throughout the Sprint.",
+"explanation": "Correct: The Sprint Backlog must have enough detail so the Developers can forecast and start working on the first few days of the Sprint. The rest of the work is decomposed as the Sprint progresses.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 12,
+"section": "Empiricism",
+"difficulty": "hard",
+"type": "multiple",
+"scenario": true,
+"text": "Upon discovering that several features considered important have low usage, what actions should a Product Owner take to investigate this issue? (choose all that apply)",
+"options": [
+"Examine whether underutilized features effectively address the intended problem.",
+"Carry out experiments to gain a better understanding of what customers value.",
+"Spend more time communicating with users to sell the benefits of the features.",
+"Disable seldom-used features and collect feedback."
+],
+"answer": [
+0,
+1,
+3
+],
+"trap": "Trying to advertise or 'sell' a feature that customers do not want is a push-strategy that contradicts empirical, value-driven management.",
+"explanation": "Correct: Examining whether features actually solve the problem, running experiments to learn what customers value, and safely disabling underused features to gauge reactions are all strong empirical approaches.",
+"source": "Evidence-Based Management (EBM) / Empiricism"
+},
+{
+"id": 13,
+"section": "Release Planning",
+"difficulty": "hard",
+"type": "multiple",
+"scenario": true,
+"text": "A new social media app has entered the market and is starting to steal customers away from your company's primary social media product. Your competition releases new and useful features quicker than you can and their customers are more satisfied. You realise you need to improve your T2M. How can you do this? (choose all that apply)",
+"options": [
+"Taking control of and improve the delivery pipeline.",
+"Reducing the number of features in each product release.",
+"Use automation to improve speed.",
+"Removing internal communication bottlenecks.",
+"Removing activities that do not add value to the development and delivery process."
+],
+"answer": [
+0,
+1,
+2,
+3,
+4
+],
+"trap": "All of these options are valid methods to optimize Time-to-Market (T2M) by reducing cycle times and eliminating waste.",
+"explanation": "Correct: All options are correct. Optimizing T2M requires improving pipelines, automating manual processes, working in smaller batches (less features per release), and removing non-value-adding communication and process bottlenecks.",
+"source": "Evidence-Based Management (EBM)"
+},
+{
+"id": 14,
+"section": "Scrum Team",
+"difficulty": "medium",
+"type": "multiple",
+"scenario": true,
+"text": "The Scrum Master is inexperienced and suggests that Developers with rare skills should be involved with multiple Scrum teams. Which are likely outcomes from such a decision? (choose all that apply)",
+"options": [
+"Teams may become 'bottlenecked' waiting for key Developers.",
+"Employee costs are lower since expensive skilled employees are shared.",
+"Teams will not be cross-functional.",
+"Dependencies are created.",
+"More work gets done since people with specialisms are better utilized."
+],
+"answer": [
+0,
+2,
+3
+],
+"trap": "Sharing specialists might seem cost-efficient on paper, but it introduces huge friction, delays, and context-switching costs.",
+"explanation": "Correct: Sharing specialists across teams creates severe scheduling dependencies, leads to resource bottlenecks, and compromises the cross-functional, self-contained nature of individual Scrum Teams.",
+"source": "Scrum Guide 2020 / Organizational Design"
+},
+{
+"id": 15,
+"section": "Forecasting",
+"difficulty": "medium",
+"type": "single",
+"scenario": false,
+"text": "A 'cone of uncertainty' can be used for? (choose the best answer)",
+"options": [
+"Determining whether to cut quality, similar to the 'Iron Triangle' of project management.",
+"Rapidly identifying and prioritizing all uncertainties.",
+"Visualizing the uncertainty of the potential value that a Scrum Team delivers over time.",
+"Representing the relative level of difficulty for predicting the velocity of individual team members."
+],
+"answer": [
+2
+],
+"trap": "Do not use the Cone of Uncertainty to justify cutting quality. Quality standards (Definition of Done) must remain high.",
+"explanation": "Correct: The 'cone of uncertainty' shows how uncertainty about scope, schedule, and potential delivered value decreases over time as more data and empirical evidence are gathered.",
+"source": "Agile Estimation and Planning"
+},
+{
+"id": 16,
+"section": "Scrum Artifacts",
+"difficulty": "medium",
+"type": "multiple",
+"scenario": false,
+"text": "Managing the Product Backlog involves which of the following? (choose all that apply)",
+"options": [
+"Ordering the items by priority.",
+"Reviewing the Product Backlog items with stakeholders.",
+"Breaking large Product Backlog items into multiple smaller Product Backlog items.",
+"Forecasting the effort required of Product Backlog items.",
+"Reducing or ideally eliminating dependencies between items"
+],
+"answer": [
+1,
+2,
+4
+],
+"trap": "Product Backlog is 'ordered', not strictly 'prioritized' by a single metric. Additionally, forecasting effort is the responsibility of the Developers, not the Product Owner.",
+"explanation": "Correct: Backlog management involves breaking down large items (refinement), collaborating and reviewing items with stakeholders, and structuring items to minimize dependencies.",
+"source": "Scrum Guide 2020 / Backlog Refinement"
+},
+{
+"id": 17,
+"section": "Stakeholders and Customers",
+"difficulty": "easy",
+"type": "multiple",
+"scenario": false,
+"text": "The user satisfaction gap is the difference between … (choose the best two answers)",
+"options": [
+"The current market share of the product.",
+"The total market size.",
+"The user's actual experience.",
+"The user's desired experience."
+],
+"answer": [
+2,
+3
+],
+"trap": "Do not confuse market share metrics with user satisfaction and experience gaps.",
+"explanation": "Correct: In EBM, the 'Unrealized Value' is represented by the Satisfaction Gap—the difference between the user's desired experience and their current actual experience.",
+"source": "Evidence-Based Management (EBM) Guide"
+},
+{
+"id": 18,
+"section": "Release Planning",
+"difficulty": "medium",
+"type": "multiple",
+"scenario": true,
+"text": "If you are uncertain about customer needs and what the market wants, what should you do? (choose the best two answers)",
+"options": [
+"Consider developing a different product.",
+"Spend more time on validating your customer need assumptions.",
+"Release often with smaller releases.",
+"Spend more time creating a risk management plan."
+],
+"answer": [
+1,
+2
+],
+"trap": "Creating extensive risk management plans is a predictive traditional approach that fails in complex environments.",
+"explanation": "Correct: To combat market uncertainty, the Product Owner must validate assumptions quickly and release small increments frequently to obtain real-world user feedback.",
+"source": "Empiricism / Lean Startup integration"
+},
+{
+"id": 19,
+"section": "Empiricism",
+"difficulty": "easy",
+"type": "single",
+"scenario": false,
+"text": "Why does Agile insist on frequent product releases? (choose the best option)",
+"options": [
+"All of the above.",
+"They enable teams to inspect and adapt more frequently.",
+"Smaller, more frequent releases are less risky.",
+"They help teams better understand and meet customer needs.",
+"None of the above.",
+"They help teams to learn how to correct and eliminate errors."
+],
+"answer": [
+0
+],
+"trap": "Do not pick a single benefit when all listed benefits are valid reasons for frequent releases.",
+"explanation": "Correct: 'All of the above.' Frequent releases drive feedback loops, mitigate deployment risks, validate user needs, and allow continuous learning and course correction.",
+"source": "Agile Principles / EBM"
+},
+{
+"id": 20,
+"section": "Empiricism",
+"difficulty": "medium",
+"type": "single",
+"scenario": false,
+"text": "Which statement is the best description of the Sprint Review? (Choose the best answer)",
+"options": [
+"A chance to evaluate the Sprint's outcome and decide on future adjustments.",
+"A showcase of the functionality accomplished in the Sprint.",
+"An examination of the work completed by the Developers during the Sprint.",
+"A meeting to retrospectively analyze the team's performance during the Sprint.",
+"A planning session to decide on the scope of work for the next Sprint."
+],
+"answer": [
+0
+],
+"trap": "The Sprint Review is not just a demo or showcase. It is a collaborative working session.",
+"explanation": "Correct: The Sprint Review is an event to inspect the Sprint's outcome, present progress, and collaboratively decide on future adaptations to the Product Backlog.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 21,
+"section": "Release Planning",
+"difficulty": "hard",
+"type": "single",
+"scenario": true,
+"text": "You are put in a difficult position by the Executive team. Your product is losing paying customers. The CEO believes new features delivered at a quicker rate will bring customers back. The marketing executive thinks the loss of customers is down to a shrinking market and increasing new feature releases will not make much difference at this point. Which action might you take? (choose the best answer)",
+"options": [
+"Collaborate with the Executive team to run a small experiment to make an informed decision.",
+"Agree with the CEO and add features to the Product Backlog as it might increase your customer base.",
+"Suggest voting to the stakeholders to decide which options should be considered.",
+"Acknowledge the views of the CEO but decline to add more features to the product."
+],
+"answer": [
+0
+],
+"trap": "Do not resolve conflicts with power dynamics (just agreeing with CEO) or voting. Use empirical data instead.",
+"explanation": "Correct: Running a small, inexpensive experiment allows the Scrum Team and Executives to gather empirical data to validate whether new features or market shrinkage is driving user behaviors.",
+"source": "Professional Scrum Product Owner II"
+},
+{
+"id": 22,
+"section": "Release Planning",
+"difficulty": "hard",
+"type": "single",
+"scenario": true,
+"text": "A new social media app has entered the market and is starting to steal customers away from your company's primary social media product. After studying this competition you realize they release new and useful features quicker than you can and their app store star rating is higher than yours. What is your best course of action? (choose the best option)",
+"options": [
+"Improve your time to market and ability to innovate to respond faster.",
+"Decrease your product price to make it more appealing.",
+"Shift your product to a market with less competition.",
+"Enhance your next release with new features to improve current value, retain users and attract new ones."
+],
+"answer": [
+0
+],
+"trap": "Adding more features without fixing the systemic capability to release fast will not solve the underlying competitive disadvantage.",
+"explanation": "Correct: When competitors out-innovate you, the best strategic move is to improve your capability to deliver value fast (Time-to-Market) and free up capacity for innovation (Ability to Innovate).",
+"source": "Evidence-Based Management (EBM)"
+},
+{
+"id": 23,
+"section": "Forecasting",
+"difficulty": "hard",
+"type": "single",
+"scenario": true,
+"text": "A new Scrum team has been ineffective at forecasting the effort required for their Sprint Backlog items. Due to items taking longer than predicted, they fear they will not be able to meet the Sprint Goal and inform yourself as the Product Owner. What first action should you take? (choose the best first option)",
+"options": [
+"Inform management that more resources are needed.",
+"End the Sprint, since the goal cannot be achieved.",
+"Change the Sprint Goal to match what the Developers can deliver.",
+"Skip Product Backlog refinement activities, to gain more development time in the Sprint.",
+"Try to reduce the scope of the Sprint, if possible, to still meet the Sprint Goal."
+],
+"answer": [
+5
+],
+"trap": "Never change the Sprint Goal mid-Sprint, and do not cancel the Sprint unless the goal becomes completely obsolete.",
+"explanation": "Correct: If work is different than expected, the Developers collaborate with the Product Owner to negotiate and reduce the scope of the Sprint Backlog while keeping the Sprint Goal intact.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 24,
+"section": "Forecasting",
+"difficulty": "hard",
+"type": "multiple",
+"scenario": true,
+"text": "During Sprint Planning the Product Owner insists on a large scope for the Sprint Goal. The Backlog items chosen are getting greater than the Developers believe they can meet in the Sprint. Which actions should be taken? (choose all that apply)",
+"options": [
+"Change or remove selected Product Backlog items whilst considering the Sprint Goal.",
+"Do not start the Sprint and take a pause between Sprints to work on backlog refinement.",
+"The Developers ensure that the Product Owner is aware, start the Sprint and monitor progress.",
+"Ask the Developers to work overtime for this Sprint and promise that it will not happen again.",
+"Start the Sprint and recruit additional Developers to help."
+],
+"answer": [
+0
+],
+"trap": "Do not force overtime, hire people mid-Sprint (which slows down teams), or cancel Sprint starts.",
+"explanation": "Correct: During Sprint Planning, if the work is too high, the Scrum Team must negotiate. The Developers and PO collaborate to adjust the items selected, ensuring the forecast is realistic and achievable.",
+"source": "Scrum Guide 2020 / Sprint Planning"
+},
+{
+"id": 25,
+"section": "Scrum Team",
+"difficulty": "medium",
+"type": "multiple",
+"scenario": false,
+"text": "During the Sprint, what will the Product Owner be doing? (choose the best 3)",
+"options": [
+"Gathering more information and opinions from stakeholders.",
+"Updating the Sprint burndown chart.",
+"Answer questions from the Developers about items in the current Sprint.",
+"Running the Daily Scrum.",
+"Reordering items in the Product Backlog.",
+"Prioritizing the Developers tasks in the Sprint Backlog."
+],
+"answer": [
+0,
+2,
+4
+],
+"trap": "The Product Owner does not run the Daily Scrum, nor do they manage or prioritize the internal tasks of the Developers.",
+"explanation": "Correct: During the Sprint, the PO continuously refines the Product Backlog with stakeholders, answers clarifying questions from Developers, and manages the ordering of upcoming work.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 26,
+"section": "Product Backlog Management",
+"difficulty": "easy",
+"type": "multiple",
+"scenario": false,
+"text": "Which of the below are true regarding the Product Backlog? (choose the best two answers)",
+"options": [
+"All Product Backlog items must be expressed as user stories.",
+"All Product Backlog items must be identified before the first Sprint begins.",
+"Only the Product Owner can place items on the Product Backlog.",
+"The Product Backlog represents the input of all stakeholders and eliminates any need for the Developers to speak to stakeholders.",
+"The Product Backlog is ordered by the Product Owner.",
+"The Product Backlog should be visible to the Scrum Team and stakeholders."
+],
+"answer": [
+4,
+5
+],
+"trap": "Scrum does not mandate User Stories (any format works), and the backlog is dynamic rather than complete upfront.",
+"explanation": "Correct: The Product Owner is accountable for ordering the Product Backlog, and the backlog must be transparent and visible to both the Scrum Team and stakeholders.",
+"source": "Scrum Guide 2020"
+},
+{
+"id": 27,
+"section": "Empiricism",
+"difficulty": "hard",
+"type": "single",
+"scenario": true,
+"text": "As the Product Owner you monitor and share your product usage dashboard which shows usage rate by feature. The data shows a particular feature is seldom used. An influential stakeholder disputes the data, and insists that the particular feature is essential, despite indicated low usage rates. The stakeholder believes that measuring feature usage is a waste of time, as it is obvious that the feature should be useful. You have confirmed that the data is accurate. What should you do? (choose the best answer)",
+"options": [
+"Stop measuring feature usage to please the stakeholder.",
+"Continue measuring feature usage and use it to inform your decisions, but do not publish it.",
+"Remove the feature.",
+"Keep measuring and openly share the data for transparency, and use it for decision-making."
+],
+"answer": [
+3
+],
+"trap": "Do not hide data or stop measuring to avoid conflicts. Transparency is a core pillar of Scrum.",
+"explanation": "Correct: 'Keep measuring and openly share the data...' Empirical decision-making relies on transparency. Keeping metrics visible allows honest, data-driven conversations rather than opinion-based direction.",
+"source": "Evidence-Based Management (EBM) / Scrum Values"
+},
+{
+"id": 28,
+"section": "Stakeholders and Customers",
+"difficulty": "medium",
+"type": "single",
+"scenario": true,
+"text": "You release a feature that came from requirements provided to you from a key stakeholder. You find that the feature does not actually get used. You suspect the key stakeholder and other stakeholders do not understand the needs of the users as much as they think. Should you discuss this with them? (choose the correct answer)",
+"options": [
+"Yes. They should realise their association with wasted effort.",
+"No. You should show that the feature hasn't been used yet, but suggest it might be used in the future.",
+"No. Look for new users who need this feature.",
+"Yes. If you share what you learned from the release, it may help them improve their understanding and ability to research what users actually need."
+],
+"answer": [
+3
+],
+"trap": "Do not turn feedback into blame or try to find excuses for unused work. Use it as a learning opportunity.",
+"explanation": "Correct: Sharing empirical usage data with stakeholders helps them refine their understanding of user needs, promoting collaborative hypothesis-testing instead of gut-feeling assumptions.",
+"source": "Evidence-Based Management (EBM) / Stakeholder Collaboration"
+},
+{
+"id": 29,
+"section": "Product Planning",
+"difficulty": "medium",
+"type": "multiple",
+"scenario": true,
+"text": "Your organization has recently adopted Scrum. Management want to know which metrics are most useful in assessing how valuable the users find the product. Which two metrics would be most suitable? (choose the best two options)",
+"options": [
+"Number of features released per month",
+"Customer satisfaction.",
+"On-time release ratio.",
+"Team velocity.",
+"Frequency of use per feature."
+],
+"answer": [
+1,
+4
+],
+"trap": "Velocity and feature output measure delivery activities, not the actual realized value delivered to the user.",
+"explanation": "Correct: Customer satisfaction and feature usage frequency measure actual realized value and user engagement, which align directly with the 'Current Value' Key Value Area in EBM.",
+"source": "Evidence-Based Management (EBM) - Current Value"
+},
+{
+"id": 30,
+"section": "Product Vision",
+"difficulty": "medium",
+"type": "single",
+"scenario": false,
+"text": "How much information is actually needed to start a Sprint? (choose the best answer)",
+"options": [
+"Enough so the Developers can create a forecast of what they can do during the Sprint.",
+"Just enough to understand the design and architecture.",
+"Just enough tasks for the Scrum Master and Product Owner to be confident in the Developer's understanding of the Sprint.",
+"All of the potential tasks. Sprint Planning cannot finish until all of the work is identified and estimated."
+],
+"answer": [
+0
+],
+"trap": "Do not require complete technical designs or exhaustive task breakdowns before starting a Sprint.",
+"explanation": "Correct: A Sprint can start as soon as there is enough high-level clarity and selected items for the Developers to confidently forecast their initial work.",
+"source": "Scrum Guide 2020"
+}
+]
