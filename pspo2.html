@@ -1363,7 +1363,7 @@
 <script>
 /* ═══════════════════════════════════════════════════════════════════════
    ██  PSPO II PRACTICE SIMULATOR V5
-   Architecture: Questions loaded from external questions.json
+   Architecture: Questions loaded from external questions_pspo2.json
    Supports: single-answer (radio) and multiple-answer (checkbox) questions
    Supports: scenario-based questions with visual badge
    ═══════════════════════════════════════════════════════════════════════ */
@@ -1398,7 +1398,7 @@ const DIFFICULTY_TARGETS = { easy: 0.25, medium: 0.50, hard: 0.25 };
 let EXAM_SIZE = 80;
 
 /* ── APPLICATION STATE ── */
-let QUESTION_BANK = [];         // Populated asynchronously from questions.json
+let QUESTION_BANK = [];         // Populated asynchronously from questions_pspo2.json
 let currentMode = 'quick';      // Default: Quick Test (first card)
 let examQuestions = [];
 let answers = {};
@@ -1420,13 +1420,13 @@ let allAttempts = [];
 
 /**
  * Load questions from the external source.
- * Currently: questions.json (local file)
+ * Currently: questions_pspo2.json (local file)
  * Future: swap the fetch URL for a Google Sheets JSON endpoint or Firestore query.
  */
 async function loadQuestions() {
   // Option A (current): Local JSON file
-  const response = await fetch('./questions.json');
-  if (!response.ok) throw new Error(`HTTP ${response.status} loading questions.json`);
+  const response = await fetch('./questions_pspo2.json');
+  if (!response.ok) throw new Error(`HTTP ${response.status} loading questions_pspo2.json`);
   const data = await response.json();
   return data;
 
@@ -1459,7 +1459,7 @@ async function initApp() {
       <div class="loading-error">
         <strong style="color:var(--teal);font-size:18px">⚠️ Could not load questions</strong><br><br>
         ${err.message}<br><br>
-        Make sure <code>questions.json</code> is in the same folder as <code>index.html</code>
+        Make sure <code>questions_pspo2.json</code> is in the same folder as <code>pspo2.html</code>
         and you are serving via a web server (not file://).
       </div>`;
   }
