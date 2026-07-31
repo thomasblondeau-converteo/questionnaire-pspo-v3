@@ -1112,9 +1112,9 @@
     🛡️ Admin Dashboard
   </button>
 
-  <div class="start-brand">CONVERTEO / PSPO I INTERNAL TRAINING</div>
-  <div class="start-title">PSPO I Practice <span>Simulator</span></div>
-  <div class="start-sub" id="startSubtitle">Train for the Scrum.org PSPO I assessment · Scrum Guide 2020 · Randomized draw</div>
+  <div class="start-brand">CONVERTEO / PSPO II INTERNAL TRAINING</div>
+  <div class="start-title">PSPO II Practice <span>Simulator</span></div>
+  <div class="start-sub" id="startSubtitle">Train for the Scrum.org PSPO II assessment · Scrum Guide 2020 · Randomized draw</div>
 
   <!-- Mode cards — order: Quick Test, Training, Full Exam -->
   <div class="start-modes">
@@ -1131,7 +1131,7 @@
     <div class="mode-card" onclick="selectMode('exam')" id="modeExam">
       <div class="mode-icon">🎯</div>
       <div class="mode-name">Full Exam</div>
-      <div class="mode-desc">80 questions · 60 min timer · Correction at the end · Real PSPO I conditions</div>
+      <div class="mode-desc">80 questions · 60 min timer · Correction at the end · Real PSPO II conditions</div>
     </div>
   </div>
 
@@ -1171,8 +1171,8 @@
           <span class="logo-fallback" style="display:none">Converteo</span>
         </div>
         <div>
-          <div class="brand">CONVERTEO / PSPO I</div>
-          <h1>PSPO I Practice <span>Simulator</span></h1>
+          <div class="brand">CONVERTEO / PSPO II</div>
+          <h1>PSPO II Practice <span>Simulator</span></h1>
           <p id="headerSub">80 questions · 60 minutes · Passing threshold: 85%</p>
         </div>
       </div>
@@ -1258,7 +1258,7 @@
   </div>
 
   <div class="footer-bar">
-    Converteo · PSPO I Practice Simulator V5 · Based on The Scrum Guide 2020 (scrumguides.org) · <span id="footerMode"></span>
+    Converteo · PSPO II Practice Simulator V5 · Based on The Scrum Guide 2020 (scrumguides.org) · <span id="footerMode"></span>
   </div>
 </div>
 
@@ -1362,7 +1362,7 @@
 
 <script>
 /* ═══════════════════════════════════════════════════════════════════════
-   ██  PSPO I PRACTICE SIMULATOR V5
+   ██  PSPO II PRACTICE SIMULATOR V5
    Architecture: Questions loaded from external questions.json
    Supports: single-answer (radio) and multiple-answer (checkbox) questions
    Supports: scenario-based questions with visual badge
@@ -1450,7 +1450,7 @@ async function initApp() {
     // Update the question count stat
     document.getElementById('statQuestionCount').textContent = QUESTION_BANK.length;
     document.getElementById('startSubtitle').textContent =
-      `Train for the Scrum.org PSPO I · Scrum Guide 2020 · ${QUESTION_BANK.length}-question bank · Randomized draw`;
+      `Train for the Scrum.org PSPO II · Scrum Guide 2020 · ${QUESTION_BANK.length}-question bank · Randomized draw`;
     overlay.classList.add('hidden');
     showScreen('start');
   } catch (err) {
