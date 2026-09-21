@@ -1127,12 +1127,12 @@
     <div class="mode-card" onclick="selectMode('train')" id="modeTrain">
       <div class="mode-icon">📚</div>
       <div class="mode-name">Training Mode</div>
-      <div class="mode-desc">80 questions · No timer · Immediate feedback after each answer · Explanations inline</div>
+      <div class="mode-desc">40 questions · No timer · Immediate feedback after each answer · Explanations inline</div>
     </div>
     <div class="mode-card" onclick="selectMode('exam')" id="modeExam">
       <div class="mode-icon">🎯</div>
       <div class="mode-name">Full Exam</div>
-      <div class="mode-desc">80 questions · 60 min timer · Correction at the end · Real PSPO II conditions</div>
+      <div class="mode-desc">40 questions · 60 min timer · Correction at the end · Real PSPO II conditions</div>
     </div>
   </div>
 
@@ -1144,7 +1144,7 @@
       <div class="l">QUESTIONS</div>
     </div>
     <div class="start-stat">
-      <div class="n">80</div>
+      <div class="n">40</div>
       <div class="l">PER FULL EXAM</div>
     </div>
     <div class="start-stat">
@@ -1174,7 +1174,7 @@
         <div>
           <div class="brand">CONVERTEO / PSPO II</div>
           <h1>PSPO II Practice <span>Simulator</span></h1>
-          <p id="headerSub">80 questions · 60 minutes · Passing threshold: 85%</p>
+          <p id="headerSub">40 questions · 60 minutes · Passing threshold: 85%</p>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;z-index:2">
@@ -1182,7 +1182,7 @@
           <span class="mode-badge" id="modeBadge">FULL EXAM</span>
         </div>
         <div class="meta-row">
-          <div class="meta-badge">❓ <span class="val" id="questionCountBadge">80</span> questions</div>
+          <div class="meta-badge">❓ <span class="val" id="questionCountBadge">40</span> questions</div>
           <div class="meta-badge">🎯 Threshold <span class="val">85%</span></div>
           <div class="meta-badge">📖 Scrum Guide <span class="val">2020</span></div>
         </div>
@@ -1197,7 +1197,7 @@
         <div class="progress-bar">
           <div class="progress-fill" id="progressFill" style="width:0%"></div>
         </div>
-        <div class="progress-txt" id="progressTxt">0 / 80 answered</div>
+        <div class="progress-txt" id="progressTxt">0 / 40 answered</div>
       </div>
       <div class="ctrl-group">
         <button class="btn btn-secondary" id="reviewBtn" onclick="toggleReview()" style="display:none">👁 Review</button>
@@ -1377,26 +1377,26 @@ const GOOGLE_SHEETS_WEBAPP_URL = "https://script.google.com/a/macros/converteo.c
 
 /* ── TEST MODES CONFIG ── */
 const TEST_MODES = {
-  exam:  { questionCount: 80, timerSeconds: 3600, immediateFeedback: false, countsForVoucher: true,  label: "FULL EXAM",     timerLabel: "60:00" },
-  train: { questionCount: 80, timerSeconds: null,  immediateFeedback: true,  countsForVoucher: false, label: "TRAINING MODE", timerLabel: "∞" },
+  exam:  { questionCount: 40, timerSeconds: 3600, immediateFeedback: false, countsForVoucher: true,  label: "FULL EXAM",     timerLabel: "60:00" },/* ── J'ai changé le 80 en 40── */
+  train: { questionCount: 40, timerSeconds: null,  immediateFeedback: true,  countsForVoucher: false, label: "TRAINING MODE", timerLabel: "∞" },/* ── J'ai changé le 80 en 40── */
   quick: { questionCount: 20, timerSeconds: 900,   immediateFeedback: false, countsForVoucher: false, label: "QUICK TEST",    timerLabel: "15:00" }
 };
 
 /* ── DRAW CONFIG — Weighted section draw ── */
 /* Rebalanced for the verified-only (Ditectrev) bank of 264 questions.
-   Targets sum to 80 (Full Exam / Training size) and every section has
+   Targets sum to 40 (Full Exam / Training size) and every section has
    ample verified questions to draw from. Adjust the weights to taste. */
 const DRAW_CONFIG = {
-  "PO & Product Value":            { target: 22, pct: 0.275 },
-  "Scrum Team":                    { target: 16, pct: 0.20  },
-  "Product Backlog & Refinement":  { target: 14, pct: 0.175 },
-  "Scrum Framework":               { target: 12, pct: 0.15  },
-  "Events":                        { target:  8, pct: 0.10  },
-  "Artifacts & DoD":               { target:  8, pct: 0.10  },
+  "PO & Product Value":            { target: 11, pct: 0.275 },/* ── J'ai changé le 22 en 11── */
+  "Scrum Team":                    { target: 8, pct: 0.20  },/* ── J'ai changé le 16 en 8── */
+  "Product Backlog & Refinement":  { target: 7, pct: 0.175 },/* ── J'ai changé le 14 en 7── */
+  "Scrum Framework":               { target: 6, pct: 0.15  },/* ── J'ai changé le 12 en 6── */
+  "Events":                        { target: 4, pct: 0.10  },/* ── J'ai changé le 8 en 4── */
+  "Artifacts & DoD":               { target: 4, pct: 0.10  },/* ── J'ai changé le 8 en 4── */
 };
 
 const DIFFICULTY_TARGETS = { easy: 0.25, medium: 0.50, hard: 0.25 };
-let EXAM_SIZE = 80;
+let EXAM_SIZE = 40;/* ── J'ai changé le 80 en 40── */
 
 /* ── APPLICATION STATE ── */
 let QUESTION_BANK = [];         // Populated asynchronously from questions_pspo2.json
@@ -1599,13 +1599,13 @@ function startExam() {
   document.getElementById('questionCountBadge').textContent = modeConfig.questionCount;
 
   if (currentMode === 'train') {
-    document.getElementById('headerSub').textContent = '80 questions · No timer · Immediate feedback';
+    document.getElementById('headerSub').textContent = '40 questions · No timer · Immediate feedback';
     document.getElementById('reviewBtn').style.display = 'none';
   } else if (currentMode === 'quick') {
     document.getElementById('headerSub').textContent = '20 questions · ~15 min · Correction at end';
     document.getElementById('reviewBtn').style.display = 'inline-block';
   } else {
-    document.getElementById('headerSub').textContent = '80 questions · 60 minutes · Passing threshold: 85%';
+    document.getElementById('headerSub').textContent = '40 questions · 60 minutes · Passing threshold: 85%';
     document.getElementById('reviewBtn').style.display = 'inline-block';
   }
 
@@ -1749,7 +1749,7 @@ function renderQuestions() {
         <div class="q-num">${String(q.displayId).padStart(2, '0')}</div>
         <div style="flex:1">
           <div class="q-text">${q.text}</div>
-          ${isMulti ? `<div class="q-note">⚠️ Select all that apply — ${q.answer.length} answers expected${immediate ? '. Make your selections, then click "Check answer".' : ''}</div>` : ''}
+          ${isMulti ? `<div class="q-note">⚠️ Select all that apply${q.answer.length < 4 ? ` — ${q.answer.length} answers expected` : ''}${immediate ? '. Make your selections, then click "Check answer".' : ''}</div>` : ''}
         </div>
         <div class="q-controls">
           ${scenarioBadge}
@@ -1995,7 +1995,7 @@ function submitExam() {
 
   const verdict = document.getElementById('scoreVerdict');
   verdict.textContent = passed
-    ? '🏆  PASSED — You are ready for the PSPO I!'
+    ? '🏆  PASSED — You are ready for the PSPO II!'
     : '❌  Not passed — Review the topics below and try again.';
   verdict.className = 'score-verdict ' + (passed ? 'verdict-pass' : 'verdict-fail');
   document.getElementById('scoreCard').style.display = 'block';
