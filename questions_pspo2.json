@@ -1959,8 +1959,9 @@
    "Unrealized Value is very small.",
    "Current Value is very low.",
    "Current Value is very high.",
-   "None of the above.",
-   "Unrealized Value is very large."
+   "Unrealized Value is very large.",
+   "None of the above."
+   
   ],
   "answer": [
    0
