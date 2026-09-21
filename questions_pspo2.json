@@ -5135,11 +5135,11 @@
   "text": "What would be a benefit of frequent product releases?",
   "options": [
    "They help teams to learn how to correct and eliminate errors.",
-   "None of the above.",
    "Smaller, more frequent releases are less risky.",
    "They enable teams to inspect and adapt more frequently.",
    "They help teams better understand and meet customer needs.",
-   "All of the above."
+   "All of the above.",
+   "None of the above."
   ],
   "answer": [
    5
